@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather by Tessa</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+    <script
+      src="https://kit.fontawesome.com/97d82c087b.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </head>
+
+  <body>
+    <div class="around">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm" class="city">
+            <h6>Washington DC</h6>
+          </div>
+          <div class="col-sm" class="city">
+            <h6>Philadelphia</h6>
+          </div>
+          <div class="col-sm" class="city">
+            <h6>Richmond</h6>
+          </div>
+          <div class="col-sm" class="city">
+            <h6>New York City</h6>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-sm" class="weatherstats">
+            <h1>
+              My weather in:
+            </h1>
+            <h2 id="current-city">Baltimore</h2>
+          </div>
+          <div class="col-sm" class="weatherstats">
+            <h2 id="today-temp">22°</h2>
+            <h3>
+              <i class="fas fa-cloud-sun"></i>
+              <a id="celsius">C</a>/<a id="fahrenheit">F</a>
+            </h3>
+          </div>
+          <div class="col-sm" class="weatherstats2">
+            <h4 id="date">
+              30 August
+            </h4>
+
+            <h4 id="humidity">
+              Humidity: 80%
+            </h4>
+            <h4 id="wind">
+              Wind: 3km/hr
+            </h4>
+            <h4 id="condition">
+              Clear
+            </h4>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="card">
+            <h5>25°</h5>
+            <p>
+              <i class="fas fa-cloud-sun-rain"></i>
+              <br />
+              <br />
+              Monday
+            </p>
+          </div>
+          <div class="card">
+            <h5>25°</h5>
+            <p>
+              <i class="fas fa-wind"></i>
+              <br />
+              <br />
+              Tuesday
+            </p>
+          </div>
+          <div class="card">
+            <h5>25°</h5>
+            <p>
+              <i class="fas fa-sun"></i>
+              <br />
+              <br />
+              Wednesday
+            </p>
+          </div>
+          <div class="card">
+            <h5>25°</h5>
+            <p>
+              <i class="fas fa-cloud-rain"></i>
+              <br />
+              <br />
+              Thursday
+            </p>
+          </div>
+          <div class="card">
+            <h5>25°</h5>
+            <p>
+              <i class="fas fa-snowflake"></i>
+              <br />
+              <br />
+              Friday
+            </p>
+          </div>
+        </div>
+      </div>
+      <form id="form-input-city">
+        <input
+          type="text"
+          id="text-input-city"
+          placeholder="It's always sunny in..."
+        />
+        <button type="submit" class="searchButton">Search</button>
+        <button type="submit" class="refreshButton" id="refresh-button">
+          Refresh
+        </button>
+      </form>
+    </div>
+    <script src="src/script.js"></script>
+  </body>
+</html>
