@@ -104,3 +104,10 @@ input {
 .refreshButton {
   background-color: #05cea7;
 }
+
+#celsius{
+  cursor:pointer;
+}
+#fahrenheit{
+  cursor:pointer;
+}
