@@ -56,13 +56,21 @@ i {
   font-size: 35px;
   color: #757575;
 }
-Small {
-  padding-bottom: 5px;
+small {
+  color:#2b2a2a;
+  position: relative;
 }
 
 input {
   box-sizing: content-box;
   width: 73%;
+}
+
+.tagline{
+  display:block;
+  position:relative;
+  font-size: 10px;
+  top: 55em;
 }
 
 .around {
