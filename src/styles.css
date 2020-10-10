@@ -58,7 +58,7 @@ i {
 }
 small {
   color:#2b2a2a;
-  position: relative;
+  
 }
 
 input {
@@ -71,14 +71,17 @@ input {
   position:relative;
   font-size: 10px;
   top: 55em;
+  margin: auto 5px;
 }
 
 .around {
   position: fixed;
   padding: 20px 30px;
+  margin: 5px 5px;
   font-family: "Nanum Gothic", sans-serif;
   box-sizing: content-box;
   background: #2b2a2a;
+  border-radius: 5px;
 }
 .card {
   width: 100px;
