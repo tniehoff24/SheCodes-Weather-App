@@ -105,6 +105,10 @@ input {
   background-color: #05cea7;
 }
 
+.iconSet{
+  height:60px;
+}
+
 #celsius{
   cursor:pointer;
 }

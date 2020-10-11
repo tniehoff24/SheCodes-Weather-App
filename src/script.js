@@ -4,7 +4,7 @@ function formatDate(date) {
     minute = `0${minute}`;
   }
   let hours = date.getHours();
-  if (hours > 12) {
+  if (hours => 12) {
     hours = `${hours - 12}:${minute} PM`;
   } else {
     hours = `${hours}:${minute} AM`;
@@ -42,6 +42,8 @@ function formatDate(date) {
 }
 
 function showTemperature(response) {
+  console.log(response);
+  let iconElement = document.querySelector("#icon-main")
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#today-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -55,6 +57,10 @@ function showTemperature(response) {
   document.querySelector(
     "#condition"
   ).innerHTML = `Conditions: ${response.data.weather[0].main}`;
+iconElement.setAttribute(
+  "src",
+  `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+);
 }
 
 function showCityTemp(city) {
