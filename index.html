@@ -25,22 +25,7 @@
   <body>
     <div class="around">
       <div class="container">
-        <div class="row">
-          <div class="col-sm" class="city">
-            <h6>Washington DC</h6>
-          </div>
-          <div class="col-sm" class="city">
-            <h6>Philadelphia</h6>
-          </div>
-          <div class="col-sm" class="city">
-            <h6>Richmond</h6>
-          </div>
-          <div class="col-sm" class="city">
-            <h6>New York City</h6>
-          </div>
-        </div>
-
-        <div class="row">
+               <div class="row">
           <div class="col-sm" class="weatherstats">
             <h1>
               My weather in:
@@ -75,52 +60,17 @@
         </div>
 
         <div class="row">
-          <div class="card">
-            <h5>25°</h5>
-            <p>
-              <i class="fas fa-cloud-sun-rain"></i>
-              <br />
-              <br />
-              Monday
+          <div class="card" id="forecast">
+            <h5><strong id="high-temp">25°</strong><span id="low-temp">/ 25°</span></h5>
+                      <img src="http://openweathermap.org/img/wn/10d@2x.png"
+              alt="Clear"
+              class="iconSet"
+              id="icon-forecast"/>
+              <p>
+                            Monday
             </p>
           </div>
-          <div class="card">
-            <h5>25°</h5>
-            <p>
-              <i class="fas fa-wind"></i>
-              <br />
-              <br />
-              Tuesday
-            </p>
-          </div>
-          <div class="card">
-            <h5>25°</h5>
-            <p>
-              <i class="fas fa-sun"></i>
-              <br />
-              <br />
-              Wednesday
-            </p>
-          </div>
-          <div class="card">
-            <h5>25°</h5>
-            <p>
-              <i class="fas fa-cloud-rain"></i>
-              <br />
-              <br />
-              Thursday
-            </p>
-          </div>
-          <div class="card">
-            <h5>25°</h5>
-            <p>
-              <i class="fas fa-snowflake"></i>
-              <br />
-              <br />
-              Friday
-            </p>
-          </div>
-        </div>
+                 </div>
       </div>
       <form id="form-input-city">
         <input
