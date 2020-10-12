@@ -98,7 +98,8 @@ function showCityTemp(city) {
   axios.get(apiCityLink).then(showTemperature);
 
  apiCityLink = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.03&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${tempUnits}`);
-  axios.get(apiCityLink).then(displayForecast);
+ console.log(apiCityLink); 
+ axios.get(apiCityLink).then(displayForecast);
 }
 
 function handleSubmit(event) {
