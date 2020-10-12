@@ -1,3 +1,15 @@
+button {
+  cursor: pointer;
+  border: transparent;
+  margin: 0px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+form {
+  margin: 10px;
+}
+
 h1 {
   text-align: left;
   font-size: 30px;
@@ -35,6 +47,12 @@ h6 {
   padding: 2px;
   color: #cccccc;
 }
+
+input {
+  box-sizing: content-box;
+  width: 73%;
+}
+
 p {
   font-size: 10px;
   text-align: center;
@@ -42,38 +60,11 @@ p {
   font-weight: bold;
 }
 
-form {
-  margin: 10px;
-}
-
-button {
-  cursor: pointer;
-  border: transparent;
-  margin: 0px;
-  padding: 3px;
-  border-radius: 5px;
-}
-i {
-  font-size: 35px;
-  color: #757575;
-}
 small {
-  color:#2b2a2a;
-  
-}
-
-input {
-  box-sizing: content-box;
-  width: 73%;
-}
-
-.tagline{
-  display:block;
-  position:relative;
-  font-size: 10px;
-  top: 55em;
-  margin: auto 5px;
-}
+  color:#cccccc;
+  font-size:10px;
+  font-style:italic;
+   }
 
 .around {
   position: fixed;
@@ -99,21 +90,19 @@ input {
   padding: 5px;
 }
 
+.iconSet{
+  height:60px;
+  width:60px;
+ }
+
+ .refreshButton {
+  background-color: #05cea7;
+}
+
 .searchButton {
   background-color: #0779ea;
 }
 
-.refreshButton {
-  background-color: #05cea7;
-}
-
-.iconSet{
-  height:60px;
-}
-
-#celsius{
-  cursor:pointer;
-}
-#fahrenheit{
+#celsius, #fahrenheit{
   cursor:pointer;
 }

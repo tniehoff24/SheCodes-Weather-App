@@ -73,9 +73,11 @@ function displayForecast(response) {
           </strong>
         /${Math.round(forecast.temp.min)}°
         </h5>
-        <img src="http://openweathermap.org/img/wn/${forecast.weather.icon}@2x.png"
+        <img src="http://openweathermap.org/img/wn/${forecast.weather[0].icon}@2x.png"
           alt="Conditions Icon"
-          class="iconSet"
+          class="mx-auto"
+          height="60"
+          width="60"
           id="icon-forecast"/>
         <p>
         ${dtTime}
