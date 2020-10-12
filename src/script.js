@@ -73,16 +73,19 @@ function displayForecast(response) {
     forecast = response.data.daily[index];
     forecastElement.innerHTML += `
     <div class="card" id="forecast">
-    <h5><strong>
-    ${Math.round(forecast.data.daily[index].temp.max)}°
-    </strong>/${Math.round(forecast.data.daily[index].temp.min)}°</h5>
-    <img src="http://openweathermap.org/img/wn/${forecast.data.daily[index].weather.icon}@2x.png"
-      alt="Conditions Icon"
-      class="iconSet"
-      id="icon-forecast"/>
+      <h5>
+        <strong>
+        ${Math.round(forecast.data.daily[index].temp.max)}°
+        </strong>
+      /${Math.round(forecast.data.daily[index].temp.min)}°
+      </h5>
+      <img src="http://openweathermap.org/img/wn/${forecast.data.daily[index].weather.icon}@2x.png"
+        alt="Conditions Icon"
+        class="iconSet"
+        id="icon-forecast"/>
       <p>
-      ${formatDate(forecast.daily[index].dt * 1000)}
-    </p>
+        ${formatDate(forecast.daily[index].dt * 1000)}
+      </p>
     </div>
     `;
   }
@@ -94,7 +97,7 @@ function showCityTemp(city) {
   let apiCityLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${tempUnits}`;
   axios.get(apiCityLink).then(showTemperature);
 
- apiCityLink = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.03&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${tempUnits}`;
+ apiCityLink = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.03&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${tempUnits}`);
   axios.get(apiCityLink).then(displayForecast);
 }
 
