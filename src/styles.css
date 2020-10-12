@@ -85,11 +85,11 @@ input {
   border-radius: 5px;
 }
 .card {
+  display: inline-flex;
   width: 100px;
   height: 120px;
   line-height: 1.2;
   text-align: center;
-  display: inline-flex;
   padding-top: 5px;
   margin: 5px;
   background-color:#0779ea;

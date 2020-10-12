@@ -4,7 +4,7 @@ function formatDate(date) {
     minute = `0${minute}`;
   }
   let hours = date.getHours();
-  if (hours => 12) {
+  if (hours > 12) {
     hours = `${hours - 12}:${minute} PM`;
   } else {
     hours = `${hours}:${minute} AM`;
@@ -40,8 +40,8 @@ function formatDate(date) {
 
   return `${day}, ${number} ${month}  at ${hours}`;
 }
-function formatDay(timestamp){
-  let date = new date(timestamp);
+function formatDay(dtTime){
+  let date = new Date(dtTime);
   let dayIndex = date.getDay();
   let days = [
     "Sunday",
@@ -62,24 +62,25 @@ function displayForecast(response) {
   forecastElement.innerHTML = null;
   let forecast = null;
 
-  for (let index = 0; index < 6; index++) {
+  for (index = 1; index < 6; index++) {
     forecast = response.data.daily[index];
+    let dtTime = formatDay(forecast.dt*1000);
     forecastElement.innerHTML += `
-    <div class="card" id="forecast">
-      <h5>
-        <strong>
-        ${Math.round(response.data.daily[index].temp.max)}°
-        </strong>
-      /${Math.round(response.data.daily[index].temp.min)}°
-      </h5>
-      <img src="http://openweathermap.org/img/wn/${response.data.daily[index].weather.icon}@2x.png"
-        alt="Conditions Icon"
-        class="iconSet"
-        id="icon-forecast"/>
-      <p>
-       ${formatDay(forecast.daily[0].dt*1000)}
-      </p>
-    </div>
+      <div class="card" id="forecast">
+        <h5>
+          <strong>
+          ${Math.round(forecast.temp.max)}°
+          </strong>
+        /${Math.round(forecast.temp.min)}°
+        </h5>
+        <img src="http://openweathermap.org/img/wn/${forecast.weather.icon}@2x.png"
+          alt="Conditions Icon"
+          class="iconSet"
+          id="icon-forecast"/>
+        <p>
+        ${dtTime}
+        </p>
+      </div>
     `;
   }
 }
