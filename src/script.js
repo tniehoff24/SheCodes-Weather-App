@@ -40,10 +40,55 @@ function formatDate(date) {
 
   return `${day}, ${number} ${month}  at ${hours}`;
 }
+function formatDay(timestamp){
+  let date = new date(timestamp);
+  let dayIndex = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ];
+  let day = days[dayIndex];
+  return day;
+}
+
+function displayForecast(response) {
+  console.log(response);
+  let forecastElement = document.querySelector("#forecast");
+  forecastElement.innerHTML = null;
+  let forecast = null;
+
+  for (let index = 0; index < 6; index++) {
+    forecast = response.data.daily[index];
+    forecastElement.innerHTML += `
+    <div class="card" id="forecast">
+      <h5>
+        <strong>
+        ${Math.round(response.data.daily[index].temp.max)}°
+        </strong>
+      /${Math.round(response.data.daily[index].temp.min)}°
+      </h5>
+      <img src="http://openweathermap.org/img/wn/${response.data.daily[index].weather.icon}@2x.png"
+        alt="Conditions Icon"
+        class="iconSet"
+        id="icon-forecast"/>
+      <p>
+       ${formatDay(forecast.daily[0].dt*1000)}
+      </p>
+    </div>
+    `;
+  }
+}
 
 function showTemperature(response) {
   console.log(response);
    let iconElement = document.querySelector("#icon-main")
+   let lat = response.data.coord.lat;
+   let lon = response.data.coord.lat;
   document.querySelector("#current-city").innerHTML = response.data.name;
   document.querySelector("#today-temp").innerHTML = `${Math.round(
     response.data.main.temp
@@ -61,34 +106,11 @@ iconElement.setAttribute(
   "src",
   `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
 );
-}
-
-function displayForecast(response) {
-  console.log(response);
-  let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = null;
-  let forecast = null;
-
-  for (let index = 0; index < 6; index++) {
-    forecast = response.data.daily[index];
-    forecastElement.innerHTML += `
-    <div class="card" id="forecast">
-      <h5>
-        <strong>
-        ${Math.round(forecast.data.daily[index].temp.max)}°
-        </strong>
-      /${Math.round(forecast.data.daily[index].temp.min)}°
-      </h5>
-      <img src="http://openweathermap.org/img/wn/${forecast.data.daily[index].weather.icon}@2x.png"
-        alt="Conditions Icon"
-        class="iconSet"
-        id="icon-forecast"/>
-      <p>
-        ${formatDate(forecast.daily[index].dt * 1000)}
-      </p>
-    </div>
-    `;
-  }
+//Calling Geocode Forecast API
+let apiKey = "bf71e32409a6d0dde84d4b8e435cc431";
+let tempUnits = "metric";
+apiCityLink = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${tempUnits}`
+axios.get(apiCityLink).then(displayForecast);
 }
 
 function showCityTemp(city) {
@@ -96,10 +118,6 @@ function showCityTemp(city) {
   let tempUnits = "metric";
   let apiCityLink = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${tempUnits}`;
   axios.get(apiCityLink).then(showTemperature);
-
- apiCityLink = fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.03&exclude=minutely,hourly,alerts&appid=${apiKey}&units=${tempUnits}`);
- console.log(apiCityLink); 
- axios.get(apiCityLink).then(displayForecast);
 }
 
 function handleSubmit(event) {
