@@ -93,10 +93,11 @@ function showTemperature(response) {
    let lat = response.data.coord.lat;
    let lon = response.data.coord.lat;
   document.querySelector("#current-city").innerHTML = response.data.name;
+  celsiusTemperature = response.data.main.temp;
   document.querySelector("#today-temp").innerHTML = `${Math.round(
-    response.data.main.temp
+    celsiusTemperature
   )}°`;
-  document.querySelector(
+    document.querySelector(
     "#humidity"
   ).innerHTML = `Humidity: ${response.data.main.humidity}%`;
   document.querySelector("#wind").innerHTML = `Wind: ${Math.round(
@@ -145,14 +146,22 @@ function getCurrentLocation(event) {
 
 function changeCelsius(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#today-temp");
-  currentTemp.innerHTML = "19°";
+  celsius.classList.add("active");
+  fahrenheit.classList.remove("active");
+  let temperatureElement = document.querySelector("#today-temp");
+  temperatureElement.innerHTML = `${Math.round(celsiusTemperature)}°`;
 }
+
+letcelsiusTemperature= null;
 
 function changeFahrenheit(event) {
   event.preventDefault();
-  let currentTemp = document.querySelector("#today-temp");
-  currentTemp.innerHTML = "66°";
+  let temperatureElement = document.querySelector("#today-temp");
+
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = `${Math.round(fahrenheitTemperature)}°`;
 }
 
 //Feature 1: Display current Date and Time
